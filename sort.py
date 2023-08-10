@@ -40,19 +40,15 @@ def partition(arr, low, high):
             i=i+1
             arr[i], arr[j]= arr[j], arr[i]
     arr[i+1], arr[high]= arr[high], arr[i+1]
-    print(f"Pivot {pivot}, arr: {arr[low:high+1]}")
     return i+1
-        
-
-
-
-
+# quickSort(arr, 0, len(arr)-1)       
 
 
         
-
+# Time complexity O(n)
+# Auxiliary space O(1)
 def selectionSort(a):
-    for i in range(len(a)):
+    for i in range(len(a)-1):
         min_idx=i
         for j in range(i+1, len(a)):
             if a[j] < a[min_idx]:
@@ -64,7 +60,7 @@ def selectionSort(a):
             
             
 def bubbleSort(a):
-    for i in range(len(a)):
+    for i in range(len(a)-1):
         swapped= False
         for j in range(len(a)-i-1):
             if a[j]>a[j+1]:
@@ -86,9 +82,29 @@ def insertionSort(a):
     print("Insetion Sort")
     print(a)
     return a
-                
-        
-    
+
+
+def binarySearch(index, arr, first, end):
+    if(first> end):
+        return 'Not found'
+    middle = (first+end)//2
+    if (index==arr[middle]):
+        return middle
+    elif (index > arr[middle]):
+        return binarySearch(index, arr, middle+1, end)
+    else :
+        return binarySearch(index, arr, first, middle-1)
+
+def binarySearchNotRecursion(index, arr, first, end):
+    while (first<end):
+        middle = (first+end)//2
+        if (index==arr[middle]):
+            return middle
+        elif (index > arr[middle]):
+            first = middle+1
+        else:
+            end= middle-1
+    return "Not found"
 arr = [64, 34, 25, 12, 22, 11, 90,30,-1, -8, 60, 50, 100,99]
   
 # selectionSort(arr)
@@ -96,8 +112,9 @@ arr = [64, 34, 25, 12, 22, 11, 90,30,-1, -8, 60, 50, 100,99]
 # insertionSort(arr)
 # mergeSort(arr)
 quickSort(arr, 0, len(arr)-1)
-
 print(arr)
-            
-# for i in range(3):
-#     print(i)
+print(binarySearchNotRecursion(65, arr, 0, len(arr)-1))
+# res = binarySearch(64, arr, 0, len(arr)-1)
+# print(res)
+
+
