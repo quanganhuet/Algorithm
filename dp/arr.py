@@ -94,8 +94,57 @@ print(minimumSwaps(arr1))
 print(arr1)
 
 
+#Starting with a 1-indexed array of zeros and a list o f operations, for each operation add a value to each the array element between two given indices, 
+#inclusive. Once all operations have been performed, return the maximum value in the array.
+##5 3
+# 1 2 100
+# 2 5 100
+# 3 4 100
+#
+# Complete the 'arrayManipulation' function below.
+#
+# The function is expected to return a LONG_INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER ndawdasdawdsdawdadwdadadadadadadadadwdsdawdasdawdaadwdasdadawdawdasdawd
+#  2. 2D_INTEGER_ARRAY queries
+#
+n=5
+queries = [[1,2,100],[2,5,100],[3,4,100]]
+n2=4
+queries2= [[2,3,603],[1,1,286],[4,4,882]]
+
+def arrayManipulation(n, queries):
+    array = [0]*n
+    rows= len(queries)
+    for row in range(rows):
+        for i in range((queries[row][0]-1), (queries[row][1])):
+            array[i]=array[i]+ queries[row][2]
+    return max(array)
+    # Write your code here 
+print(arrayManipulation(n2, queries2))
 
 
+def initializedDiffArray(A):
+    n= len(A)
+
+    D= [0 for i in range(0, n+1)]
+
+    D[0] = A[0]
+    D[n] = 0
+
+    for i in range(1,n):
+        D[i]= A[i] - A[i-1]
+    return D
+
+def update(D, l, r, x)
+    D[l] += x 
+    D[r+1] -= x
+
+def printArray(A,D):
+    for i in range(0, len(A)):
+        if(i==0):
+            A[i]= D[i]
+        else:
+            A[i]= D[i]+A[i-1]
 
 
-    

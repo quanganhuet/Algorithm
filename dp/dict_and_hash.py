@@ -11,6 +11,7 @@ note= "imjaw l khmla x imjaw o l l o khmla v bee o o imjaw imjaw o"
 
 magazine= magazine.rstrip().split()
 note=note.rstrip().split()
+
 def checkMagazine2(magazine, note):
     hashset = set()
     for i in range(len(magazine)):
@@ -49,5 +50,23 @@ def checkMagazine1(magazine, note):
     else:
         return 'No'
 
+
+def twoStrings(s1, s2):
+    hashset=set()
+    for c in range(len(s1)):
+        print(s1[c])
+        hashset.add(s1[c])
+    for c in range(len(s2)):
+        hashset.add(s2[c])
+    if len(hashset)!= len(s1)+ len(s2):
+        print("YES")
+    else:
+        print("NO")
+
+
+
 print(magazine)
 print(checkMagazine1(magazine, note))
+twoStrings("hello", "wworld")
+
+
